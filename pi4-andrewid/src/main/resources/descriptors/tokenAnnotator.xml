@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<casConsumerDescription xmlns="http://uima.apache.org/resourceSpecifier">
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <implementationName>PassageRankingWriter</implementationName>
-  <processingResourceMetaData>
-    <name>casConsumerDescriptor</name>
+  <primitive>true</primitive>  <annotatorImplementationName>annotators.TokenAnnotator</annotatorImplementationName>
+  <analysisEngineMetaData>
+    <name>tokenAnnotator</name>
     <description/>
     <version>1.0</version>
     <vendor/>
     <configurationParameters>
       <configurationParameter>
-        <name>OutputDir</name>
-        <type>String</type>
+        <name>K</name>
+        <type>Integer</type>
         <multiValued>false</multiValued>
-        <mandatory>false</mandatory>
+        <mandatory>true</mandatory>
       </configurationParameter>
     </configurationParameters>
     <configurationParameterSettings>
       <nameValuePair>
-        <name>OutputDir</name>
+        <name>K</name>
         <value>
-          <string>Y</string>
+          <integer>16</integer>
         </value>
       </nameValuePair>
     </configurationParameterSettings>
@@ -33,18 +33,19 @@
     <capabilities>
       <capability>
         <inputs>
-          <type allAnnotatorFeatures="true">type.SourceDocumentInformation</type>
           <type allAnnotatorFeatures="true">type.InputDocument</type>
         </inputs>
-        <outputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">type.InputDocument</type>
+        </outputs>
         <languagesSupported/>
       </capability>
     </capabilities>
   <operationalProperties>
-      <modifiesCas>false</modifiesCas>
-      <multipleDeploymentAllowed>false</multipleDeploymentAllowed>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
       <outputsNewCASes>false</outputsNewCASes>
     </operationalProperties>
-  </processingResourceMetaData>
+  </analysisEngineMetaData>
   <resourceManagerConfiguration/>
-</casConsumerDescription>
+</analysisEngineDescription>

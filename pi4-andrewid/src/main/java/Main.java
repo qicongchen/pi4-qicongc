@@ -5,6 +5,7 @@ import org.apache.uima.collection.CollectionReader;
 import org.apache.uima.collection.metadata.CpeDescription;
 import org.apache.uima.util.XMLInputSource;
 
+
 public class Main {
 
   /**
@@ -19,8 +20,8 @@ public class Main {
     // component.
 
     // Edit the following code to get the input and output directories from a command line.
-    String inputDir = null;
-    String outputDir = null;
+    String inputDir = args[0];
+    String outputDir = args[1];
 
     // Instantiate CPE.
     CpeDescription cpeDesc = UIMAFramework.getXMLParser()

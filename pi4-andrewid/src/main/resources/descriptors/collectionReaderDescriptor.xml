@@ -9,27 +9,57 @@
     <vendor/>
     <configurationParameters>
       <configurationParameter>
-        <name>InputDir</name>
+        <name>Language</name>
         <type>String</type>
         <multiValued>false</multiValued>
         <mandatory>false</mandatory>
       </configurationParameter>
+      <configurationParameter>
+        <name>Encoding</name>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>BrowseSubdirectories</name>
+        <type>Boolean</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+    <configurationParameter>
+        <name>InputDir</name>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
     </configurationParameters>
     <configurationParameterSettings>
       <nameValuePair>
-        <name>InputDir</name>
+        <name>Language</name>
         <value>
-          <string>src/main/resources/inputData</string>
+          <string>en</string>
+        </value>
+      </nameValuePair>
+      <nameValuePair>
+        <name>BrowseSubdirectories</name>
+        <value>
+          <boolean>false</boolean>
         </value>
       </nameValuePair>
     </configurationParameterSettings>
-    <typeSystemDescription/>
+    <typeSystemDescription>
+      <imports>
+        <import location="typeSystem.xml"/>
+      </imports>
+    </typeSystemDescription>
     <typePriorities/>
     <fsIndexCollection/>
     <capabilities>
       <capability>
         <inputs/>
-        <outputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">type.SourceDocumentInformation</type>
+        </outputs>
         <languagesSupported/>
       </capability>
     </capabilities>

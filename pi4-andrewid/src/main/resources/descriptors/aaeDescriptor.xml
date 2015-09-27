@@ -1,22 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>false</primitive>  <analysisEngineMetaData>
+  <primitive>false</primitive>  
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="testElementAnnotator">
+      <import location="testElementAnnotator.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="dictionaryAnnotator">
+      <import location="dictionaryAnnotator.xml"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="tokenAnnotator">
+      <import location="tokenAnnotator.xml"/>
+    
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
+  <analysisEngineMetaData>
     <name>aaeDescriptor</name>
     <description>This is a template (empty) descriptor for your Aggerate Analysis Engine.  You will need to specify your type system and capabilities, in addition to your individual analysis engines.</description>
     <version>1.0</version>
     <vendor/>
-    <configurationParameters/>
-    <configurationParameterSettings/>
+    <configurationParameters searchStrategy="language_fallback">
+      <configurationParameter>
+        <name>K</name>
+        <type>Integer</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+        <overrides>
+          <parameter>tokenAnnotator/K</parameter>
+        </overrides>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>K</name>
+        <value>
+          <integer>16</integer>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
     <flowConstraints>
-      <fixedFlow/>
+      <fixedFlow>
+        <node>testElementAnnotator</node>
+        <node>dictionaryAnnotator</node>
+      <node>tokenAnnotator</node>
+      </fixedFlow>
     </flowConstraints>
     <typePriorities/>
     <fsIndexCollection/>
     <capabilities>
       <capability>
         <inputs/>
-        <outputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">type.InputDocument</type>
+        </outputs>
         <languagesSupported/>
       </capability>
     </capabilities>
